@@ -1,0 +1,207 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $F$
+\end_inset
+
+ be the target function, 
+\begin_inset Formula $H$
+\end_inset
+
+ be our hypothesis.
+ 
+\begin_inset Formula $H[i]$
+\end_inset
+
+ is the probability of going to state 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ 
+\begin_inset Formula $D$
+\end_inset
+
+ is the given data, for simplicity every entry in the list D is an integer
+ between 0 and the length of 
+\begin_inset Formula $H$
+\end_inset
+
+ (meaning that 
+\begin_inset Formula $D[i]$
+\end_inset
+
+ can be used like 
+\begin_inset Formula $i$
+\end_inset
+
+).
+ Additionally assume that 
+\begin_inset Formula $S$
+\end_inset
+
+ is the data that leads to our prior (i.e.
+ if 
+\begin_inset Formula $D$
+\end_inset
+
+ is the data for a team in a given year, 
+\begin_inset Formula $S$
+\end_inset
+
+ is the data for all teams for the last 2 decades, the standard matrix).
+\end_layout
+
+\begin_layout Standard
+Note: 
+\begin_inset Formula $\sum H[i]=1$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P(H=F\mid D)=P(D\mid H=F)P(H=F)\div P(D)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $max(P(H=F\mid D))=max(P(D\mid H=F)P(H=F)\div P(D))=max(P(D\mid H=F)P(H=F))$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P(D\mid H=F)=\prod H[D[i]]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P(H=F)=\prod H[S[i]]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be the list of 
+\begin_inset Formula $D$
+\end_inset
+
+ and 
+\begin_inset Formula $S$
+\end_inset
+
+ appended together.
+ We can now write: 
+\begin_inset Formula $P(D\mid H=F)P(H=F)=\prod H[D[i]]*\prod H[S[i]]=\prod H[V[i]]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore: 
+\begin_inset Formula $max(P(H=F\mid D))=max(\prod H[V[i]])$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Additionally maximizing a single set of multiplications has already been
+ achieved when making the standard matrix, the same can be done to find
+ 
+\begin_inset Formula $max(\prod H[V[i]])$
+\end_inset
+
+ (simply normalize the row with the appended data lists).
+\end_layout
+
+\end_body
+\end_document
